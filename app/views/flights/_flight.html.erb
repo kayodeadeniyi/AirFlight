@@ -1,0 +1,49 @@
+<div id="search_result2">
+  <% unless @flightsearch.empty? %>
+    <div class="row">
+      <form action="/bookings/new" method="get">
+        <table class="striped centered">
+         <thead>
+           <tr>
+               <th data-field="action">Select</th>
+               <th data-field="origin">Origin</th>
+               <th data-field="dest">Destination</th>
+               <th data-field="date">Date</th>
+               <th data-field="take-off">Take off Time</th>
+               <th data-field="duration">Duration</th>
+           </tr>
+         </thead>
+
+         <tbody>
+
+           <% @flightsearch.each do |flight| %>
+           <tr>
+             <td>
+               <p>
+                 <input name="flight_id" type="radio" value= <%= flight.id %> id="test<%= flight.id %>" />
+                 <label for="test<%= flight.id %>"></label>
+               </p>
+             </td>
+             <td><%= flight.from_airport.name %></td>
+             <td><%= flight.to_airport.name %></td>
+             <td><%= flight.start_time.strftime("%b %d %Y") %></td>
+             <td><%= flight.start_time.strftime("%-l:%M %P") %></td>
+             <td><%= flight.duration %> minutes</td>
+           </tr>
+           <% end %>
+         </tbody>
+       </table>
+
+       <input name="passenger_no" type="hidden" value= <%= @passengers_select %> id="passenger" />
+       <div class="row" style="margin-top: 20px">
+         <div class="center">
+           <button class="btn waves-effect waves-light" type="submit" name="action2"><i class="material-icons right">send</i>Order
+           </button>
+         </div>
+       </div>
+     </form>
+    </div>
+  <% else %>
+    <p class="flow-text center"> No flight available</p>
+  <% end %>
+</div>

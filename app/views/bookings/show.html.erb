@@ -1,4 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row ">
+    <div class="col l12 m12 s12 center" id="search-form">
+      <!-- <p class="center flow-text">Booking information</p> -->
+      <p class="center flow-text">Confirm Booking</p>
+      <table class="centered hoverable">
+          <thead>
+            <tr>
+                <th>Flight ID</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Date</th>
+                <th>Take-off time</th>
+                <th>Duration</th>
+                <th>Passenger name</th>
+                <th>Passenger Email</th>
+                <th>Price</th>
+            </tr>
+          </thead>
+          <% total = 0%>
+          <% invoice = "#{@booking.id}#{@booking.flight_id}#{@booking.flight.from_airport.code}#{@booking.flight.to_airport.code}" %>
+          <% orders = []%>
+          <% @booking.passengers.each do |passenger|%>
+            <% passenger_order = {}%>
+            <% passenger_order[:price] = passenger.flight.price %>
+            <% passenger_order[:details] = "Flight Origin: #{passenger.flight.from_airport.name}
+                                                    Flight Destination: #{passenger.flight.to_airport.name}
+                                                    Duration: #{passenger.flight.duration}
+                                                    Date: #{passenger.flight.start_time.strftime("%d/%m/%Y")}
+                                                    Take-off time: #{passenger.flight.start_time.strftime("%H:%m")} "%>
+            <% orders << passenger_order%>
+            <% invoice += "#{passenger.id}"%>
+            <tbody>
+              <tr>
+                <td><%= passenger.flight.id%></td>
+                <td><%= passenger.flight.from_airport.name %></td>
+                <td><%= passenger.flight.to_airport.name %></td>
+                <td><%= passenger.flight.start_time.strftime("%d/%m/%Y") %></td>
+                <td><%= passenger.flight.start_time.strftime("%H:%m") %></td>
+                <td><%= passenger.flight.duration %></td>
+                <td><%= passenger.name %></td>
+                <td><%= passenger.email %></td>
+                <td>$ <%= passenger.flight.price %></td>
+              </tr>
+            </tbody>
+            <% total += passenger.flight.price %>
+          <% end %>
+        </table>
+        <p class="center flow-text">Total: $<%= total %> </p><br>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+
+        <%= link_to 'Check out', @booking.paypal_url(payment_completed_url, invoice, orders ), class: "btn waves-effect waves-light center", style: "margin-top: 20px" %>
+    </div>
+  </div>
+</div>

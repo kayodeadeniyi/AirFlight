@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  post '/payment/processed' => 'bookings#processed', as: :payment_completed
+  get 'flights/paymentstatus' => 'flights#paymentstatus'
+  #post '/bookings/paypal_url'
   resources :bookings
   resources :passengers
-  resources :tickets
   resources :airports
   resources :flights
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'flights#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <title>AirFlight</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <nav>
+    <div class="nav-wrapper grey darken-2" style="padding-left: 10px">
+      <a href="/" class="brand-logo center orange-text"><i class="fa fa-fighter-jet "> CheckOut</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/" class="orange-text text-lighten-3">login</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
 
-<%= yield %>
+<main>
+  <%= yield %>
+</main>
 
+<footer class="page-footer grey darken-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="orange-text">About Us</h5>
+                <p class="orange-text text-lighten-3 ">CheckIt is a web app that makes searching for a flight as easy as posible.
+                  It is Kayode's checkpoint 2 project while he was in D0 Andela Ruby training track.</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Copyright
+            <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
+          </div>
+        </footer>
 </body>
 </html>

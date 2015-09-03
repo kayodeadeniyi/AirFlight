@@ -1,3 +1,51 @@
 @import "materialize/components/color";
-$primary-color: color("blue", "lighten-2") !default;
+$primary-color: color("materialize-pink", "darken-2") !default;
 @import 'materialize';
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.hide{
+    display: none !important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  font-size: 0.8rem;
+  color: #000;
+  display: block;
+  padding: 0.8rem 0.8rem;
+}
+.btn, .btn-large{
+  background-color: #ef6c00 !important;
+}
+
+.btn:hover, .btn-large:hover{
+  background-color: #ef6c00 !important;
+}
+
+button:focus{
+  background-color: #ef6c00 !important;
+}
+[type="radio"]:checked + label:after{
+  border: 2px solid #ef6c00 !important;
+  background-color: #ef6c00 !important;
+}
+.input-field .prefix.active{
+  color: #ef6c00 !important;
+}
+
+input{
+    outline: none !important;
+    &:focus{
+      outline: none !important;
+      border-bottom-color:  #ef6c00 !important;
+    }
+  }

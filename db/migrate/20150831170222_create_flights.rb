@@ -4,7 +4,7 @@ class CreateFlights < ActiveRecord::Migration
 
       t.string :start_location
       t.string :end_location
-      t.string :start_time
+      t.datetime :start_time
       t.string :duration
 
       t.timestamps null: false

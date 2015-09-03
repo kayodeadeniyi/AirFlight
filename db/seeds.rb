@@ -21,31 +21,31 @@ end
 #seed for flights
 Flight.delete_all
 
-30.times do
+20.times do
 	Flight.create!([
-    {start_location: Airport.find_by(code: "LAG").id, end_location: Airport.find_by(code: "IB").id, start_time: t + randomize * days,duration: 6 * hours},
-		{start_location: Airport.find_by(code: "LAG").id, end_location: Airport.find_by(code: "ABJ").id, start_time: t + randomize * days, duration: 6 * hours},
-		{start_location: Airport.find_by(code: "LAG").id, end_location: Airport.find_by(code: "IFE").id, start_time: t + randomize * days,duration: 5 * hours}
+    {start_location: Airport.find_by(code: "LAG").id, end_location: Airport.find_by(code: "IB").id, start_time: t + randomize * days,duration: 6 * hours, price: 6 * hours * 5},
+		{start_location: Airport.find_by(code: "LAG").id, end_location: Airport.find_by(code: "ABJ").id, start_time: t + randomize * days, duration: 9 * hours, price: 9 * hours * 5},
+		{start_location: Airport.find_by(code: "LAG").id, end_location: Airport.find_by(code: "IFE").id, start_time: t + randomize * days,duration: 5 * hours, price: 5 * hours * 5}
       ])
 end
-30.times do
+20.times do
 	Flight.create!([
-    {start_location: Airport.find_by(code: "IB").id,end_location: Airport.find_by(code: "LAG").id,start_time: t + randomize * days,duration: 6 * hours},
-    {start_location: Airport.find_by(code: "IB").id,end_location: Airport.find_by(code: "ABJ").id,start_time: t + randomize * days,duration: 3 * hours},
-    {start_location: Airport.find_by(code: "IB").id,end_location: Airport.find_by(code: "IFE").id,start_time: t + randomize * days,duration: 3 * hours}
+    {start_location: Airport.find_by(code: "IB").id,end_location: Airport.find_by(code: "LAG").id,start_time: t + randomize * days,duration: 6 * hours, price: 6 * hours * 5},
+    {start_location: Airport.find_by(code: "IB").id,end_location: Airport.find_by(code: "ABJ").id,start_time: t + randomize * days,duration: 3 * hours, price: 3 * hours * 5},
+    {start_location: Airport.find_by(code: "IB").id,end_location: Airport.find_by(code: "IFE").id,start_time: t + randomize * days,duration: 3 * hours, price: 3 * hours * 5}
       ])
 end
-30.times do
+20.times do
 	Flight.create!([
-    {start_location: Airport.find_by(code: "ABJ").id,end_location: Airport.find_by(code: "LAG").id,start_time: t + randomize * days,duration: 6 * hours},
-    {start_location: Airport.find_by(code: "ABJ").id,end_location: Airport.find_by(code: "IB").id,start_time: t + randomize * days,duration: 3 * hours},
-    {start_location: Airport.find_by(code: "ABJ").id,end_location: Airport.find_by(code: "IFE").id,start_time: t + randomize * days,duration: 3 * hours}
+    {start_location: Airport.find_by(code: "ABJ").id,end_location: Airport.find_by(code: "LAG").id,start_time: t + randomize * days,duration: 6 * hours, price: 6 * hours * 5},
+    {start_location: Airport.find_by(code: "ABJ").id,end_location: Airport.find_by(code: "IB").id,start_time: t + randomize * days,duration: 3 * hours, price: 3 * hours * 5},
+    {start_location: Airport.find_by(code: "ABJ").id,end_location: Airport.find_by(code: "IFE").id,start_time: t + randomize * days,duration: 3 * hours, price: 3 * hours * 5}
       ])
 end
-30.times do
+20.times do
 	Flight.create!([
-    {start_location: Airport.find_by(code: "IFE").id,end_location: Airport.find_by(code: "LAG").id,start_time: t + randomize * days,duration: 6 * hours},
-    {start_location: Airport.find_by(code: "IFE").id,end_location: Airport.find_by(code: "ABJ").id,start_time: t + randomize * days,duration: 3 * hours},
-    {start_location: Airport.find_by(code: "IFE").id,end_location: Airport.find_by(code: "IB").id,start_time: t + randomize * days,duration: 3 * hours}
+    {start_location: Airport.find_by(code: "IFE").id,end_location: Airport.find_by(code: "LAG").id,start_time: t + randomize * days,duration: 6 * hours, price: 6 * hours * 5},
+    {start_location: Airport.find_by(code: "IFE").id,end_location: Airport.find_by(code: "ABJ").id,start_time: t + randomize * days,duration: 9 * hours, price: 9 * hours * 5},
+    {start_location: Airport.find_by(code: "IFE").id,end_location: Airport.find_by(code: "IB").id,start_time: t + randomize * days,duration: 3 * hours, price: 3 * hours * 5}
       ])
 end

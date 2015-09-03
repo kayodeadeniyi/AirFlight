@@ -3,8 +3,6 @@ class CreatePassengers < ActiveRecord::Migration
     create_table :passengers do |t|
       t.string :name
       t.string :email
-      t.string :password
-      t.string :telephone
 
       t.timestamps null: false
     end
