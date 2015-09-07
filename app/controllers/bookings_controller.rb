@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  protect_from_forgery :except => [:processed]
+  protect_from_forgery :except => [:processed, :payment_notification]
   before_action :authenticate_user, :only => [:new, :create]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
@@ -25,17 +25,12 @@ class BookingsController < ApplicationController
     end
   end
 
-  # GET /bookings/1/edit
-  def edit
-  end
-
-  # POST /bookings
-  # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     respond_to do |format|
       if @booking.save
+        @booking_id_store = @booking.id
         format.html { redirect_to @booking }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -46,15 +41,11 @@ class BookingsController < ApplicationController
   end
 
   def payment_notification
-    @booking = Booking.find_by_id(session[:booking])
+    @booking = Booking.find_by_id(params[:invoice])
     status = params[:payment_status]
-    if status == "Completed"
-      @booking.payment_status = "completed"
-      @booking.save
-      if @booking.save
-        session[:booking] = nil
-      end
-    end
+    @booking.payment_status = status
+    @booking.save
+    render nothing: true
   end
 
 
@@ -66,7 +57,6 @@ class BookingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
       @booking = Booking.find(params[:id])
-      session[:booking] = params[:id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

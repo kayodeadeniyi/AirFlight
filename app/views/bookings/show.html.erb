@@ -18,7 +18,7 @@
             </tr>
           </thead>
           <% total = 0%>
-          <% invoice = "#{@booking.id}#{@booking.flight_id}#{@booking.flight.from_airport.code}#{@booking.flight.to_airport.code}" %>
+          <% invoice = @booking.id %>
           <% orders = []%>
           <% @booking.passengers.each do |passenger|%>
             <% passenger_order = {}%>
@@ -29,7 +29,6 @@
                                                     Date: #{passenger.flight.start_time.strftime("%d/%m/%Y")}
                                                     Take-off time: #{passenger.flight.start_time.strftime("%H:%m")} "%>
             <% orders << passenger_order%>
-            <% invoice += "#{passenger.id}"%>
             <tbody>
               <tr>
                 <td><%= passenger.flight.id%></td>
