@@ -25,12 +25,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  # GET /bookings/1/edit
-  def edit
-  end
-
-  # POST /bookings
-  # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
@@ -47,17 +41,11 @@ class BookingsController < ApplicationController
   end
 
   def payment_notification
-    puts params[:invoice]
     @booking = Booking.find_by_id(params[:invoice])
     status = params[:payment_status]
-    p status
-    if status == "Completed"
-      @booking.payment_status = "completed"
-      @booking.save
-      if @booking.save
-        p "status saved"
-      end
-    end
+    @booking.payment_status = status
+    @booking.save
+    render nothing: true
   end
 
 
