@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     respond_to do |format|
       if @booking.save
-        session[:booking] = @booking.id
+        session[:booking] = 1
         format.html { redirect_to @booking }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -47,7 +47,8 @@ class BookingsController < ApplicationController
   end
 
   def payment_notification
-    puts "this is session bookking #{session[:booking]}"
+    p session[:booking]
+    puts "session booking above"
     @booking = Booking.find_by_id(session[:booking])
     status = params[:payment_status]
     if status == "Completed"
