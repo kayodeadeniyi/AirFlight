@@ -47,15 +47,15 @@ class BookingsController < ApplicationController
   end
 
   def payment_notification
-    p @booking_id_store
-    puts "Object_id above"
-    @booking = Booking.find_by_id(session[:booking])
+    puts params[:invoice]
+    @booking = Booking.find_by_id(params[:invoice])
     status = params[:payment_status]
+    p status
     if status == "Completed"
       @booking.payment_status = "completed"
       @booking.save
       if @booking.save
-        session[:booking] = nil
+        p "status saved"
       end
     end
   end
