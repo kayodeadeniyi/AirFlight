@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   post '/payment/processed' => 'bookings#processed', as: :payment_completed
-  get 'flights/paymentstatus' => 'flights#paymentstatus'
+  post 'flights/paymentstatus' => 'flights#paymentstatus'
   get 'bookings/payment_notification' => 'bookings#payment_notification'
   #post '/bookings/paypal_url'
   resources :bookings

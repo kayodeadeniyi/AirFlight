@@ -14,7 +14,6 @@
                 <th>Price</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
               <td><%= @flight.id%></td>
@@ -40,28 +39,22 @@
             <p class="orange-text text-darken-3 center">Passenger <%= passenger_count.to_s%></p>
             <div style="margin-top:20px;">
               <% passenger_count += 1 %>
-
               <div class="input-field col s10">
                 <i class="fa fa-pencil prefix icon-setting"></i>
                 <label> Name </label>
                 <%= passenger.text_field :name, require:true , placeholder: 'Enter your name' %>
               </div>
-
               <div class="input-field col s10">
                 <i class="fa fa-pencil prefix icon-setting"></i>
                 <label> Email </label>
                 <%= passenger.text_field :email, require:true, placeholder: 'Enter your email' %>
               </div>
-
             </div>
           </div>
         <% end %>
         <%= booking.hidden_field :flight_id, value: @flight.id %>
-
         <div class="col s3 offset-s4 center">
-
           <button class="col s12 btn waves-effect waves-light center">Book Flight
-            <!-- <i class='fa fa-floppy-o'></i> -->
           </button>
         </div>
       <% end %>
