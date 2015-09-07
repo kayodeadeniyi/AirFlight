@@ -23,7 +23,7 @@
               <td><%= @flight.start_time.strftime("%d/%m/%Y") %></td>
               <td><%= @flight.start_time.strftime("%H:%m") %></td>
               <td><%= @passenger_number %></td>
-              <td>$560.87</td>
+              <td><%= number_to_currency(@flight.price, precision: 0) %></td>
             </tr>
           </tbody>
         </table>

@@ -5,9 +5,9 @@ class FlightMailer < ApplicationMailer
   #
   #   en.flight_mailer.flight_details.subject
   #
-  def flight_details(user, flight)
-    @greeting = "Hi #{user.first_name}"
-    @flight_details = flight
-    mail to: user.email, subject: "Flight Booking Details"
+  def flight_details
+    @greeting = "Hi"
+    # @flight_details = flight
+    mail to: 'kaykayboy2000@yahoo.com', subject: "Flight Booking Details"
   end
 end

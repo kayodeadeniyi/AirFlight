@@ -1,5 +1,5 @@
 class FlightsController < ApplicationController
-
+  
   def index
     @dates = Flight.order("start_time asc").all.map { |flight| [flight.start_time.strftime("%b %d %Y")] }.uniq
     @passengers = [1, 2, 3, 4]
@@ -16,6 +16,7 @@ class FlightsController < ApplicationController
 
 
   def paymentstatus
+    FlightMailer.flight_details.deliver_later!(wait: 1.minute)
     render 'paymentstatus.html.erb'
   end
 

@@ -43,9 +43,28 @@ button:focus{
 }
 
 input{
+  outline: none !important;
+  &:focus{
     outline: none !important;
-    &:focus{
-      outline: none !important;
-      border-bottom-color:  #ef6c00 !important;
-    }
+    border-bottom-color:  #ef6c00 !important;
   }
+}
+
+ul#dropdown-user_option{
+  margin-left: 3%;
+}
+
+.our-fa-caret-down.fa-caret-down{
+  margin-top: 20px;
+}
+
+.profile_pic.circle{
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border: solid 3px rgba(239,108,0, 0.6);
+}
+
+.our-fa-caret-down.fa-caret-down{
+  margin-top: 0px;
+}

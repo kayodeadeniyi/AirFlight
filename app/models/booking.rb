@@ -1,9 +1,10 @@
 class Booking < ActiveRecord::Base
   belongs_to :flight
+  belongs_to :user
 	has_many :passengers
   accepts_nested_attributes_for :passengers
 
-  def paypal_url(return_url, invoice, ordered_items)
+  def paypal_url(return_url, invoice, ordered_items, notify_url)
     # @user = current_user
       values = {
         :business => 'kayodeadeniyi001-facilitator@yahoo.com',  # Seller's email
@@ -12,7 +13,7 @@ class Booking < ActiveRecord::Base
         :rm => 2,                         # we want a post response from PayPal with payment details
         :return => return_url,            # PayPal redirects to this url after transaction is complete
         :invoice => invoice,             # invoice id
-        :notify_url => "kaykayboy2000@yahoo.com",       # email that PayPal sends due notification for the payment
+        :notify_url => notify_url,       # email that PayPal sends due notification for the payment
       }
 
       counter = 1

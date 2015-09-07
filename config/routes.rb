@@ -1,14 +1,28 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/destroy'
+
+  get 'users/update'
+
+  get 'users/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   post '/payment/processed' => 'bookings#processed', as: :payment_completed
   get 'flights/paymentstatus' => 'flights#paymentstatus'
+  get 'bookings/payment_notification' => 'bookings#payment_notification'
   #post '/bookings/paypal_url'
   resources :bookings
   resources :passengers
   resources :airports
   resources :flights
+
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
 
   # You can have the root of your site routed with "root"
   root 'flights#index'

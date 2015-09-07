@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row ">
+    <div class="col l12 m12 s12 center" id="search-form">
+      <!-- <p class="center flow-text">Booking information</p> -->
+      <p class="center flow-text">Your Bookings</p>
+      <% if @booking %>
+        <table class="centered hoverable striped">
+            <thead>
+              <tr>
+                  <th>S/N</th>
+                  <th>Flight ID</th>
+                  <th>Origin</th>
+                  <th>Destination</th>
+                  <th>Date</th>
+                  <th>Take-off time</th>
+                  <th>Duration</th>
+                  <th>Passenger name</th>
+                  <th>Passenger Email</th>
+                  <th>Price</th>
+              </tr>
+            </thead>
+            <% count = 1%>
+            <% @booking.each do |booking|%>
+              <% booking.passengers.each do |passenger|%>
+
+                <tbody>
+                  <tr>
+                    <td><%= count %></td>
+                    <td><%= passenger.flight.id%></td>
+                    <td><%= passenger.flight.from_airport.name %></td>
+                    <td><%= passenger.flight.to_airport.name %></td>
+                    <td><%= passenger.flight.start_time.strftime("%d/%m/%Y") %></td>
+                    <td><%= passenger.flight.start_time.strftime("%H:%m") %></td>
+                    <td><%= distance_of_time_in_words(passenger.flight.duration.to_i * 60) %></td>
+                    <td><%= passenger.name %></td>
+                    <td><%= passenger.email %></td>
+                    <td><%= number_to_currency(passenger.flight.price, precision: 0) %></td>
+                  </tr>
+                </tbody>
+                <% count +=1 %>
+              <% end %>
+            <% end %>
+          </table>
+        <%else%>
+          <p class="flow-text"> You have not booked any flight yet</p>
+        <% end %>
+    </div>
+  </div>
+</div>
