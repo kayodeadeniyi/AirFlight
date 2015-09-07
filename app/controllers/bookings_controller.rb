@@ -1,3 +1,4 @@
+require 'pry'
 class BookingsController < ApplicationController
   protect_from_forgery :except => [:processed, :payment_notification]
   before_action :authenticate_user, :only => [:new, :create]
@@ -48,6 +49,7 @@ class BookingsController < ApplicationController
 
   def payment_notification
     p session[:booking]
+    Binding.pry
     puts "session booking above"
     @booking = Booking.find_by_id(session[:booking])
     status = params[:payment_status]
