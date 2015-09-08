@@ -1,4 +1,4 @@
-<h1>Flight Booker App</h2>
+<h1>Flight Booker App</h1>
 
 This project is my implementation of the Flight Booker App for Andela's Simulation project (checkpoint 2) for Rail's track
 
