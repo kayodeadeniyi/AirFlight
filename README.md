@@ -10,4 +10,4 @@ This project will require you to seed your database, so use your db/seeds.rb fil
 
 
 
-Click <a href="travelnow.herokuapp.com"> here</a> to see the demo of my application
+Click <a href="http://travelnow.herokuapp.com"> here</a> to see the demo of my application
