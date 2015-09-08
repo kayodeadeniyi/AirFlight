@@ -5,40 +5,40 @@
     <% if @airports && @dates %>
       <form action="/flights" method="get" data-remote="true" class="form-header col l12 m12 s9 centralize">
         <div class="row">
-          <div class="input-field col l5 m12 s12 flow-text ">
-            <select name="from_airport" id="from_airport">
-              <% @airports.each do |airport|%>
-                <option value="<%= airport.id %>"><%= airport.name %></option>
-              <% end %>
-            </select>
+          <div class="col l5 m12 s12">
             <label>Flight Origin</label>
-          </div>
-          <div class="input-field col offset-l2 l5 m12 s12 flow-text">
-            <select name="to_airport" id="to_airport">
+            <select name="from_airport" id="from_airport" class="browser-default">
               <% @airports.each do |airport|%>
                 <option value="<%= airport.id %>"><%= airport.name %></option>
               <% end %>
             </select>
+          </div>
+          <div class="col offset-l2 l5 m12 s12">
             <label>Flight Destination</label>
+            <select name="to_airport" id="to_airport" class="browser-default">
+              <% @airports.each do |airport|%>
+                <option value="<%= airport.id %>"><%= airport.name %></option>
+              <% end %>
+            </select>
           </div>
         </div>
 
         <div class="row">
-          <div class="input-field col l5 m12 s12 flow-text">
-            <select name="date" id="date">
+          <div class="col l5 m12 s12">
+            <label>Departure</label>
+            <select name="date" id="date" class="browser-default">
               <% @dates.each do |date|%>
                 <option value="<%= date %>"><%= date[-1] %></option>
               <% end %>
             </select>
-            <label>Departure</label>
           </div>
-          <div class="input-field col offset-l2 l5 m12 s12 flow-text">
-            <select name="passengers" id="passengers">
+          <div class="col offset-l2 l5 m12 s12">
+            <label>No of Passengers</label>
+            <select name="passengers" id="passengers" class="browser-default">
               <% @passengers.each do |passenger|%>
                 <option value="<%= passenger %>"><%= passenger %></option>
               <% end %>
             </select>
-            <label>No of Passengers</label>
           </div>
         </div>
 

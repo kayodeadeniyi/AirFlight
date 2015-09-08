@@ -21,17 +21,20 @@ RSpec.feature "MakeBookings", type: :feature do
 
     click_link 'Google'
 
-    find('#from_airport', :visible => false).find(:xpath, 'option[1]').select_option
-    # find('#from_airport').find(:xpath, 'option[1]').select_option
+    find('#from_airport').find(:xpath, 'option[1]').select_option
     find('#to_airport').find(:xpath, 'option[2]').select_option
-    find('#date').find(:xpath, 'option[1]').select_option
+    find('#date').find(:xpath, 'option[2]').select_option
     find('#passengers').find(:xpath, 'option[1]').select_option
 
-    click_link "Search"
+    click_button "Search"
 
 
-    # expect(page).to have_selector("li", text: "flight")
+    # expect(page).to have_selector("div", id: "search_result2")
+    expect(page).to have_selector('#search_result2')
     # expect(page).to have_selector("li", text: "Passenger")
+    page.choose('test1')
+    
+    click_button "Order"
 
 
 
