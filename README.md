@@ -1,28 +1,13 @@
-== README
+<h1> Flight Booker App </h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is my implementation of the Flight Booker App for Andela's Simulation project (checkpoint 2) for Rail's track
 
-Things you may want to cover:
+<h2> Project Description </h2>
 
-* Ruby version
+In this project, you'll get a chance to tackle some advanced forms. This is the kind of thing you'll have to work with when handling user orders for anything more complicated than an e-book. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project will require you to seed your database, so use your db/seeds.rb file to write the code necessary to populate Airports and Flights. One trick for apps like this (don't do it for production!) is to make your seeds file ::delete_all items from each table in your database and then completely repopulate them. That way, when you create a new model or change how you want your sample data set up, you can just update the seeds.rb file and rerun $ rake db:seed.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+Click <a href="http://travelnow.herokuapp.com"> here</a> to see the demo of my application
