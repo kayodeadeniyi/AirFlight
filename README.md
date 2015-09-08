@@ -2,7 +2,7 @@
 
 This project is my implementation of the Flight Booker App for Andela's Simulation project (checkpoint 2) for Rail's track
 
-Project Description
+<h2> Project Description </h2>
 
 In this project, you'll get a chance to tackle some advanced forms. This is the kind of thing you'll have to work with when handling user orders for anything more complicated than an e-book. 
 
