@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
       user.profile_url = auth.info.image
       user.first_name = auth.info.name
       user.email = auth.info.email
-      user.oauth_token = auth.credentials.token
+      # user.oauth_token = auth.credentials.token
       user.save!
     end
   end

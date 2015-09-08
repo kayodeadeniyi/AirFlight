@@ -6,7 +6,7 @@
       <form action="/flights" method="get" data-remote="true" class="form-header col l12 m12 s9 centralize">
         <div class="row">
           <div class="input-field col l5 m12 s12 flow-text ">
-            <select name="from_airport">
+            <select name="from_airport" id="from_airport">
               <% @airports.each do |airport|%>
                 <option value="<%= airport.id %>"><%= airport.name %></option>
               <% end %>
@@ -14,7 +14,7 @@
             <label>Flight Origin</label>
           </div>
           <div class="input-field col offset-l2 l5 m12 s12 flow-text">
-            <select name="to_airport">
+            <select name="to_airport" id="to_airport">
               <% @airports.each do |airport|%>
                 <option value="<%= airport.id %>"><%= airport.name %></option>
               <% end %>
@@ -25,7 +25,7 @@
 
         <div class="row">
           <div class="input-field col l5 m12 s12 flow-text">
-            <select name="date">
+            <select name="date" id="date">
               <% @dates.each do |date|%>
                 <option value="<%= date %>"><%= date[-1] %></option>
               <% end %>
@@ -33,7 +33,7 @@
             <label>Departure</label>
           </div>
           <div class="input-field col offset-l2 l5 m12 s12 flow-text">
-            <select name="passengers">
+            <select name="passengers" id="passengers">
               <% @passengers.each do |passenger|%>
                 <option value="<%= passenger %>"><%= passenger %></option>
               <% end %>

@@ -19,6 +19,7 @@ gem 'pry'
 gem 'responders'
 gem "figaro"
 
+# this gem is used for single sign on
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 
@@ -45,6 +46,12 @@ gem 'daemons'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # these gems are used for testing rails app
+  gem 'rspec-rails', '~> 3.0'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'capybara'
+
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
