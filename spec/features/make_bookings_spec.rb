@@ -1,17 +1,15 @@
 require 'rails_helper'
-# require 'database_cleaner'
 require 'pry'
 
 describe "MakeBookings", type: :feature do
   Capybara.default_driver = :selenium
 
   before do
-    # page.driver.browser.manage.window.resize_to(990,640)
     OmniAuth.config.test_mode = true
     @var = Flight.first.id
   end
 
-  scenario "User can search for flights"  do
+  scenario "User can book flights"  do
 
     name = "Kayode"
     email = "kaykayboy@yahoo.com"
@@ -35,6 +33,7 @@ describe "MakeBookings", type: :feature do
     expect(page).to have_selector('.centered')
     expect(page).to have_selector('.hoverable')
     expect(page).to have_selector("#booking-form")
+
 
     fill_in "booking[passengers_attributes][0][name]", with: name
     fill_in "booking[passengers_attributes][0][email]", with: email
