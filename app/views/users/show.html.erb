@@ -3,7 +3,9 @@
     <div class="col l12 m12 s12 center" id="search-form">
       <!-- <p class="center flow-text">Booking information</p> -->
       <p class="center flow-text">Your Bookings</p>
-      <% unless @booking.nil? %>
+      <% if @booking.empty? %>
+        <p class="flow-text"><i> You have not booked any flight yet</i></p>
+      <% else %>
         <table class="centered hoverable striped">
             <thead>
               <tr>
@@ -41,8 +43,6 @@
               <% end %>
             <% end %>
           </table>
-        <% else %>
-          <p class="flow-text"><i> You have not booked any flight yet</i></p>
         <% end %>
     </div>
   </div>

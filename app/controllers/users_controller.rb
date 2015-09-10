@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
-    @booking = Booking.where(user_id: 1)
+    @booking = Booking.where(user_id: current_user)
   end
 
   def user_params
