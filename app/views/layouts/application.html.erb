@@ -45,40 +45,27 @@
     </nav>
   </header>
 
+  <main>
+    <% if flash[:notice].present? %>
+      <div>
+        <script type="text/javascript">
+            Materialize.toast("<%= flash[:notice].to_s %>", 3000, 'rounded')
+        </script>
+      </div>
+    <% end %>
 
-<main>
-  <% if flash[:notice].present? %>
-  <div>
-    <script type="text/javascript">
-        Materialize.toast("<%= flash[:notice].to_s %>", 3000, 'rounded')
-    </script>
-  </div>
-<% end %>
-
-  <%= yield %>
-
+    <%= yield %>
     <%= render partial: 'layouts/login_modal'%>
-</main>
+  </main>
 
-
-
-<footer class="page-footer grey darken-2">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="orange-text">About Us</h5>
-                <p class="orange-text text-lighten-3 ">CheckIt is a web app that makes searching for a flight as easy as posible.
-                  It is Kayode's checkpoint 2 project while he was in D0 Andela Ruby training track.</p>
-              </div>
-
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2015 Copyright
-            <a class="grey-text text-lighten-4 right" href="#!"></a>
-            </div>
-          </div>
-        </footer>
+  <footer class="page-footer grey darken-2">
+    <div class="container">
+      <div class="row">
+        <p class="orange-text text-lighten-3" >© 2015 Copyright, Made with
+          <i class="connect-icon mdi-action-favorite red-text"> </i> by Kay
+        </p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
