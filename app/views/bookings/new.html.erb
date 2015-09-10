@@ -42,12 +42,12 @@
               <div class="input-field col s10">
                 <i class="fa fa-pencil prefix icon-setting"></i>
                 <label> Name </label>
-                <%= passenger.text_field :name, require:true , placeholder: 'Enter your name' %>
+                <%= passenger.text_field :name, required: true , placeholder: 'Enter your name', class: 'validate' %>
               </div>
               <div class="input-field col s10">
                 <i class="fa fa-pencil prefix icon-setting"></i>
                 <label> Email </label>
-                <%= passenger.text_field :email, require:true, placeholder: 'Enter your email' %>
+                <%= passenger.text_field :email, required: true, placeholder: 'Enter your email', class: 'validate' %>
               </div>
             </div>
           </div>

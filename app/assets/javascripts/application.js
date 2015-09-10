@@ -18,4 +18,26 @@
 $(document).ready(function() {
   $('.modal-trigger').leanModal();
   $('select').material_select();
+
+  $.validator.setDefaults({
+    errorClass: 'invalid',
+      validClass: "valid",
+      errorPlacement: function (error, element) {
+        $(element)
+          .closest("form")
+          .find("label[for='" + element.attr("id") + "']")
+          .attr('data-error', error.text());
+      },
+      submitHandler: function (form) {
+        console.log('form ok');
+      }
+  });
+
+  $("#form").validate({
+    rules: {
+      dateField: {
+        date: true
+      }
+    }
+  });
 });

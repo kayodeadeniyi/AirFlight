@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     respond_to do |format|
       if @booking.save
+    # Binding.pry
         @booking_id_store = @booking.id
         format.html { redirect_to @booking }
         format.json { render :show, status: :created, location: @booking }

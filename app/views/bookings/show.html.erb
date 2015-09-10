@@ -48,7 +48,7 @@
         <p class="center flow-text">Total: $<%= total %> </p><br>
 
 
-        <%= link_to 'Check out', @booking.paypal_url(payment_completed_url, invoice, orders, bookings_payment_notification_url), class: "btn waves-effect waves-light center", style: "margin-top: 20px" %>
+        <%= link_to 'Check out', @booking.paypal_url(payment_completed_url, invoice, orders, bookings_payment_notification_url), class: "btn waves-effect waves-light center", style: "margin-top: 20px", method: :post %>
     </div>
   </div>
 </div>

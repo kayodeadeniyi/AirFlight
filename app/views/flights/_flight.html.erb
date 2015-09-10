@@ -2,6 +2,7 @@
   <% unless @flightsearch.empty? %>
     <div class="row">
       <form action="/bookings/new" method="get">
+        <ul class="errorMessages"></ul>
         <table class="striped centered">
          <thead>
            <tr>
@@ -20,8 +21,8 @@
            <tr>
              <td>
                <p>
-                 <input name="flight_id" type="radio" value= <%= flight.id %> id="test<%= flight.id %>" />
-                 <label for="test<%= flight.id %>"></label>
+                 <input class="validates" name="flight_id" type="radio" style="display: block;" required value= "<%= flight.id %>" id="test<%= flight.id %>" />
+                 <label for="test<%= flight.id%>" class="our-label-display"><%= flight.id %></label>
                </p>
              </td>
              <td><%= flight.from_airport.name %></td>

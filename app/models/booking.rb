@@ -1,4 +1,7 @@
 class Booking < ActiveRecord::Base
+  validates :flight_id, :presence => true
+  validates :user_id, :presence => true
+
   belongs_to :flight
   belongs_to :user
 	has_many :passengers
