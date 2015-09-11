@@ -24,6 +24,6 @@ $(document).ready(function() {
 function validation(){
   if ($('input[name=flight_id]:checked').length > 0) {
   }else{
-    Materialize.toast("You must select a radio button", 3000, 'rounded')
+    Materialize.toast("You must select a flight first", 3000, 'rounded')
   }
 }
