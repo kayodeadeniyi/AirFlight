@@ -24,6 +24,6 @@ class Flight < ActiveRecord::Base
   end
 
   def self.search(from, to, date)
-    where(start_location: from, end_location: to, start_time: Flight.format_date(date))
+    where(start_location: from, end_location: to, start_time: Flight.format_date(date)).order("start_time asc")
   end
 end

@@ -1,5 +1,5 @@
 class FlightsController < ApplicationController
-  
+
   def index
     @dates = Flight.order("start_time asc").all.map { |flight| [flight.start_time.strftime("%b %d %Y")] }.uniq
     @passengers = [1, 2, 3, 4]
@@ -20,12 +20,8 @@ class FlightsController < ApplicationController
     render 'paymentstatus.html.erb'
   end
 
-
-
   private
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def flight_params
-      params.permit(:from_airport, :to_airport, :date, :passengers)
-    end
+  def flight_params
+    params.permit(:from_airport, :to_airport, :date, :passengers)
+  end
 end

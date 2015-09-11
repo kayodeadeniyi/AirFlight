@@ -1,7 +1,7 @@
 <div id="search_result2">
   <% unless @flightsearch.empty? %>
     <div class="row">
-      <form action="/bookings/new" method="get">
+      <form action="/bookings/new" method="get" id="target">
         <ul class="errorMessages"></ul>
         <table class="striped centered">
          <thead>
@@ -38,11 +38,12 @@
        <input name="passenger_no" type="hidden" value= <%= @passengers_select %> id="passenger" />
        <div class="row" style="margin-top: 20px">
          <div class="center">
-           <button class="btn waves-effect waves-light" type="submit" name="action2"><i class="material-icons right">send</i>Order
+           <button class="btn waves-effect waves-light" id="order_button" onclick="validation()" type="submit" name="action2"><i class="material-icons right">send</i>Order
            </button>
          </div>
        </div>
      </form>
+
     </div>
   <% else %>
     <p class="flow-text center"> No flight available</p>

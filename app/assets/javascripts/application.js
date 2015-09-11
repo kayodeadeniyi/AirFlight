@@ -16,6 +16,14 @@
 //= require_tree .
 
 $(document).ready(function() {
+
   $('.modal-trigger').leanModal();
   $('select').material_select();
 });
+
+function validation(){
+  if ($('input[name=flight_id]:checked').length > 0) {
+  }else{
+    Materialize.toast("You must select a radio button", 3000, 'rounded')
+  }
+}
