@@ -2,7 +2,7 @@ deployment:
   develop:
     branch: master
     heroku:
-      appname: AirFlight
+      appname: travelnow
 machine:
   ruby:
     version: 2.2.2
