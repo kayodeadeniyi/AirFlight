@@ -1,6 +1,6 @@
 <h1> Flight Booker App </h1>
 
-This project is my implementation of the Flight Booker App for Andela's Simulation project (checkpoint 2) for Rail's track
+This project is an implementation of the Flight Booker App for Andela's Simulation project (checkpoint 2) for Rail's track
 
 <h2> Project Description </h2>
 
