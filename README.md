@@ -12,3 +12,7 @@ This project will require you to seed your database, so use your db/seeds.rb fil
 
 Click <a href="http://travelnow.herokuapp.com"> here</a> to see the demo of my application
 [![Coverage Status](https://coveralls.io/repos/andela-kadeniyi/AirFlight/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-kadeniyi/AirFlight?branch=master)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/andela-kadeniyi/airflight/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
